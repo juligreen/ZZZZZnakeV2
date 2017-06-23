@@ -41,7 +41,7 @@ public class GUI implements IGUI {
 		if (znake.isDead() == true) {
 			death(znake);
 		}
-		if (znake.isRich() == true && znake.getLoopCountAfterGoldGet() < 1) {
+		if (znake.isRich() == true && znake.getLoopCountAfterGoldGet() <= 1) {
 			goldGet(znake);
 		}
 	}

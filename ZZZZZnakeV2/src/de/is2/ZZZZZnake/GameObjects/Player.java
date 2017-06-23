@@ -21,7 +21,10 @@ public class Player extends GameObject {
 	}
 
 	public void setPosition(Point position) {
-		this.position = position;
+		Point newPoint = new Point();
+		newPoint.x = position.x;
+		newPoint.y = position.y;
+		this.position = newPoint;
 	}
 
 	public void move(String movementDirection, Player player) {
