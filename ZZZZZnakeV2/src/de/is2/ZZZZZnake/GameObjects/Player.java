@@ -41,6 +41,10 @@ public class Player extends GameObject {
 		case "right":
 			player.setXPosition(Math.min(player.getPosition().x + 1, 40));
 			break;
+		case "null":
+			System.out.println("null");
+			break;
+
 		}
 	}
 

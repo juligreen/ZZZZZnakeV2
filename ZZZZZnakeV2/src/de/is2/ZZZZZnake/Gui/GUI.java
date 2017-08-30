@@ -10,11 +10,29 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ChoiceDialog;
 
 public class GUI implements IGUI {
+	private ZZZZZnake snake;
 
+	public GUI() {
+		this.getTeleporterBehaviourInput(this);
+	}
+
+	@Override
 	public void produce(ZZZZZnake znake) {
 	}
 
 	public void produceText(ZZZZZnake znake) {
+		if (znake.getLoopCount() < 1) {
+			startMessages(znake);
+		}
+		if (znake.isVictory() == true) {
+			victory(znake);
+		}
+		if (znake.isDead() == true) {
+			death(znake);
+		}
+		if (znake.isRich() == true && znake.getLoopCountAfterGoldGet() < 1) {
+			goldGet(znake);
+		}
 	}
 
 	public void startMessages(ZZZZZnake znake) {
@@ -28,27 +46,44 @@ public class GUI implements IGUI {
 	}
 
 	public void victory(ZZZZZnake znake) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Victory Dialog");
+		alert.setContentText(znake.getVictoryMessage());
+
+		alert.showAndWait();
+		Platform.exit();
 	}
 
 	public void death(ZZZZZnake znake) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Defeat Dialog");
+		alert.setContentText(znake.getDeathMessage());
+
+		alert.showAndWait();
+		Platform.exit();
 	}
 
 	public void goldGet(ZZZZZnake znake) {
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Victory Dialog");
+		alert.setContentText(znake.getGoldGetMessage());
+
+		alert.showAndWait();
 	}
 
 	public int teleporterNumberInput() {
-		final int[] teleporterNumbers = { 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-		ChoiceDialog dialog = new ChoiceDialog(2, teleporterNumbers);
+		final String[] teleporterNumbers = { "2", "3", "4", "5", "6", "7", "8", "9", "10" };
+		ChoiceDialog<String> dialog = new ChoiceDialog<>("2", teleporterNumbers);
 		dialog.setTitle("Teleporternumber");
 		dialog.setHeaderText("Please select the Number of teleporters");
 		dialog.setContentText("");
 
-		Optional result = dialog.showAndWait();
+		Optional<String> result = dialog.showAndWait();
 		if (false == result.isPresent()) {
 			Platform.exit();
 			return 0;
 		} else {
-			return (int) result.get();
+			return Integer.parseInt(result.get());
 		}
 	}
 
@@ -66,13 +101,20 @@ public class GUI implements IGUI {
 		if (false == result.isPresent()) {
 			Platform.exit();
 		} else {
-			ZZZZZnake zzzzznakeinstance = new ZZZZZnake(gui, result.get());
-			zzzzznakeinstance.run(zzzzznakeinstance);
+			snake = new ZZZZZnake(gui, result.get());
+			snake.run(snake);
 		}
 
 	}
 
+	@Override
 	public String playerMovement() {
+		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public ZZZZZnake getSnake() {
+		return snake;
+	}
+
 }

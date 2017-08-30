@@ -54,40 +54,72 @@ public class ZZZZZnake {
 		}
 	}
 
+	public void runMovement(ZZZZZnake znake, String movementDirection) {
+
+		if (loopCount > 0) {
+			player.move(movementDirection, getPlayer());
+
+		}
+
+		if (!rich) {
+			snake.snakeMovementTowards(player);
+		} else {
+			if (loopCountAfterGoldGet >= 2) {
+				snake.snakeMovementTowards(player);
+			}
+			loopCountAfterGoldGet++;
+		}
+
+		if (znake.isRich() && getPlayer().getPosition().equals(znake.getDoor().getPosition())) {
+			setVictory(true);
+		}
+		if (Arrays.asList(znake.getTeleporterPositions()).contains(znake.getPlayer().getPosition())) {
+			final TeleporterSelection teleporterSelection = new TeleporterSelection();
+			teleporterSelection.selectTeleporter(getTeleporterBehaviour(), teleporters, player);
+		}
+		if (getPlayer().getPosition().equals(getGold().getPosition())) {
+			setRich(true);
+		}
+
+		if (Arrays.asList(getSnake().getSnakePositions()).contains(getPlayer().getPosition())) {
+			setDead(true);
+		}
+
+		loopCount++;
+
+		gui.produceText(znake);
+		gui.produce(znake);
+	}
+
 	public void run(ZZZZZnake znake) {
 
-		while (true) {
+		gui.produceText(znake);
+		gui.produce(znake);
 
-			gui.produceText(znake);
-			gui.produce(znake);
-
-			player.move(gui.playerMovement(), getPlayer());
-
-			if (znake.isRich() && getPlayer().getPosition().equals(znake.getDoor().getPosition())) {
-				setVictory(true);
-			}
-
-			if (Arrays.asList(getSnake().getSnakePositions()).contains(getPlayer().getPosition())) {
-				setDead(true);
-			}
-			if (getPlayer().getPosition().equals(getGold().getPosition())) {
-				setRich(true);
-			}
-			if (Arrays.asList(znake.getTeleporterPositions()).contains(znake.getPlayer().getPosition())) {
-				final TeleporterSelection teleporterSelection = new TeleporterSelection();
-				teleporterSelection.selectTeleporter(getTeleporterBehaviour(), teleporters, player);
-			}
-
-			if (!rich) {
-				snake.snakeMovementTowards(player);
-			} else {
-				if (loopCountAfterGoldGet >= 2) {
-					snake.snakeMovementTowards(player);
-				}
-				loopCountAfterGoldGet++;
-			}
-			loopCount++;
+		if (znake.isRich() && getPlayer().getPosition().equals(znake.getDoor().getPosition())) {
+			setVictory(true);
 		}
+
+		if (Arrays.asList(getSnake().getSnakePositions()).contains(getPlayer().getPosition())) {
+			setDead(true);
+		}
+		if (getPlayer().getPosition().equals(getGold().getPosition())) {
+			setRich(true);
+		}
+		if (Arrays.asList(znake.getTeleporterPositions()).contains(znake.getPlayer().getPosition())) {
+			final TeleporterSelection teleporterSelection = new TeleporterSelection();
+			teleporterSelection.selectTeleporter(getTeleporterBehaviour(), teleporters, player);
+		}
+
+		if (!rich) {
+			snake.snakeMovementTowards(player);
+		} else {
+			if (loopCountAfterGoldGet >= 2) {
+				snake.snakeMovementTowards(player);
+			}
+			loopCountAfterGoldGet++;
+		}
+		loopCount++;
 	}
 
 	public Player getPlayer() {
