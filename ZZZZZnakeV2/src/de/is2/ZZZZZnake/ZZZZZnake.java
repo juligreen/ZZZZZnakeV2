@@ -27,8 +27,8 @@ public class ZZZZZnake {
 	private final String deathMessage = "You died a pitiful and gruesome death...";
 	private final String goldGetMessage = "With tha money you can exit tha door";
 	private final String newLine = System.getProperty("line.separator");
-	private final String startmessage1 = "You are the '&', the snake is the 'S', the '$' is the gold, the '#' is the exit door and 'T'and 'D' are teleporters which connect with each other.";
-	private final String startmessage2 = "You control by entering 'u'(for 'up'), 'd' (for 'down'), 'r'(for 'right') and 'l' (for 'left').";
+	private final String startmessage1 = "You are the black rectangle, the snake is the green rectangles, the geolden rectangle is the gold, the brown rectangle is the exit door and the violet rectangles are teleporters which connect with each other.";
+	private final String startmessage2 = "You control by pressing the arrow keys";
 	private final String startmessage3 = "Get the gold to exit trough the door before the snake eats you!";
 	private final String startmessage4 = "Getting the gold makes the Snake freeze for 3 turns.";
 	private boolean dead = false;
