@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ZZZZZnakeV2.jar" size="19227" download="eager" />
+    <jar href="ZZZZZnakeV2.jar" size="11186" download="eager" />
   </resources>
   <jfx:javafx-desc  width="0" height="0" main-class="de.is2.ZZZZZnake.Gui.Main"  name="ZZZZZnake" />
   <update check="background"/>
