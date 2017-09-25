@@ -23,14 +23,7 @@ public class ZZZZZnake {
 	private int loopCount = 0;
 
 	private int numberOfTeleporters;
-	private final String victoryMessage = "You win!";
-	private final String deathMessage = "You died a pitiful and gruesome death...";
-	private final String goldGetMessage = "With tha money you can exit tha door";
-	private final String newLine = System.getProperty("line.separator");
-	private final String startmessage1 = "You are the black rectangle, the snake is the green rectangles, the geolden rectangle is the gold, the brown rectangle is the exit door and the violet rectangles are teleporters which connect with each other.";
-	private final String startmessage2 = "You control by pressing the arrow keys";
-	private final String startmessage3 = "Get the gold to exit trough the door before the snake eats you!";
-	private final String startmessage4 = "Getting the gold makes the Snake freeze for 3 turns.";
+
 	private boolean dead = false;
 	private boolean victory = false;
 	private boolean rich = false;
@@ -140,38 +133,6 @@ public class ZZZZZnake {
 
 	public boolean isRich() {
 		return rich;
-	}
-
-	public String getVictoryMessage() {
-		return victoryMessage;
-	}
-
-	public String getDeathMessage() {
-		return deathMessage;
-	}
-
-	public String getGoldGetMessage() {
-		return goldGetMessage;
-	}
-
-	public String getNewLine() {
-		return newLine;
-	}
-
-	public String getStartmessage1() {
-		return startmessage1;
-	}
-
-	public String getStartmessage2() {
-		return startmessage2;
-	}
-
-	public String getStartmessage3() {
-		return startmessage3;
-	}
-
-	public String getStartmessage4() {
-		return startmessage4;
 	}
 
 	public boolean isDead() {
