@@ -62,10 +62,10 @@ public class GUI extends JFrame implements IGUI, KeyListener {
 		}
 	}
 
-	public static JPanel[][] fillPanelArray(int rows, int columns, JPanel[][] panelArray) {
+	public static JPanel[][] fillPanelArray(final int rows, final int columns, final JPanel[][] panelArray) {
 		for (int rowCount = 0; rowCount < rows; rowCount++) {
 			for (int columnCount = 0; columnCount < columns; columnCount++) {
-				JPanel panel = new JPanel();
+				final JPanel panel = new JPanel();
 				panel.setBackground(Color.BLUE);
 				panelArray[rowCount][columnCount] = panel;
 			}
